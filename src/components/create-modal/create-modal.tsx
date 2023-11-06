@@ -33,6 +33,10 @@ const [qtdestoque, setQtdestoque] = useState(0);
 const { mutate,isSuccess} = useProductDataMutate();
 
 const submit = () => {
+    if (!name || !marca || !classe || !qtdestoque) {
+        window.alert("Por favor, preencha todos os campos!");
+        return;
+      }
     const productData: ProductData = {
         name,
         marca,

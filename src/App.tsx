@@ -46,9 +46,11 @@ function App() {
     setIsModalOpen(prev => !prev)
   }
 
+  
+
   return (
     <div className="container">
-      <h1>Farmácia</h1>
+      <h1>DrugStore</h1>
       <div className="search-container">
           <input
             className="search-bar"

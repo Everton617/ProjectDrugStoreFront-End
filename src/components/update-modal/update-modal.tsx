@@ -31,6 +31,10 @@ export function UpdateModal({ closeModal }: ModalProps) {
   const { mutate, isSuccess } = useProductDataUpdate();
 
   const submit = () => {
+    if (!codigo || !name || !marca || !classe || !qtdestoque) {
+      window.alert("Por favor, preencha todos os campos!");
+      return;
+    }
     const productData: ProductData = {
         codigo,
         name,

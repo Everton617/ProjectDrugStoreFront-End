@@ -12,6 +12,10 @@ export function DeleteModal({ closeModal }: DeleteModalProps) {
   const { mutate, isSuccess } = useProductDataDelete();
 
   const submit = () => {
+    if (!codigo) {
+      window.alert("Por favor, insira o código do medicamento a ser excluído!");
+      return;
+    }
     mutate(codigo);
   };
 
