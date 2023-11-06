@@ -1,0 +1,38 @@
+.modal-body h2{
+    padding-top: 10px;
+    color: rgb(127, 134, 238);
+}
+
+.modal-body button{
+    background: rgb(127, 134, 238);
+    border-radius: 20px;
+}
+
+.modal-overflow{
+    background-color: rgba(128, 128, 128, 0.233);
+    width: 360px;
+    min-height: 360px;
+    height: 350px;
+    min-height: 350px;
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.178);
+}
+
+.input-container{
+display: flex;
+flex-direction: column;
+width: 250px;
+margin: auto;
+color: rgb(127, 134, 238);
+padding-bottom: 10px;
+font-weight: bold;
+}
+
+.input-container input{
+    background-color: rgb(243, 243, 243);
+    border-radius: 5px;
+    border: none;
+    height: 20px;
+    color: black;
+}

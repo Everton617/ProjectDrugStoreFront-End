@@ -1,0 +1,12 @@
+.row td {
+    width: 100vw;
+}
+
+.row th, .row td{
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    color: rgb(127, 134, 238);
+    font-weight: 500;
+    border-left: 1px solid #ddd;
+}
+
