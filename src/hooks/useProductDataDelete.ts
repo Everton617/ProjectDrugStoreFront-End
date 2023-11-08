@@ -1,10 +1,10 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-const API_URL = 'http://localhost:8080';
+const API_URL = 'https://projetofullstack-nf8h.onrender.com';
 
 const deleteData = async (codigo: number) => {
-    const response = await axios.delete(`${API_URL}/product/${codigo}`);
+    const response = await axios.delete(`${API_URL}/products/${codigo}`);
     return response;
 };
 
