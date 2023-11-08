@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient,InvalidateQueryFilters } from "@tanstack/react-query";
 import axios, { AxiosPromise } from "axios";
 import { ProductData } from "../interface/ProductData";
 
@@ -9,17 +9,16 @@ const putData = async ({ id, data }: { id: number; data: ProductData }): AxiosPr
     return response;
 };
 
-
 export function useProductDataUpdate() {
     const queryClient = useQueryClient();
-   const mutate = useMutation({
-    mutationFn: putData,
-    retry: 2,
-    onSuccess: () =>{
-        queryClient.invalidateQueries(['product-data'])
-    }
-   })
-    
+    const mutate = useMutation({
+        mutationFn: putData,
+        retry: 2,
+        onSuccess: () => {
+            const keyArray: string[] = ['product-data'];
+            queryClient.invalidateQueries(keyArray as InvalidateQueryFilters);
+        }
+    });
 
     return mutate;
 }

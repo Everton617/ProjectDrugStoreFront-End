@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { useMutation, useQueryClient, InvalidateQueryFilters } from "@tanstack/react-query";
 import axios from "axios";
 
 const API_URL = 'https://projetofullstack-nf8h.onrender.com';
@@ -14,9 +14,11 @@ export function useProductDataDelete() {
         mutationFn: deleteData,
         retry: 2,
         onSuccess: () => {
-            queryClient.invalidateQueries(['product-data'])
+            const keyArray: string[] = ['product-data'];
+            queryClient.invalidateQueries(keyArray as InvalidateQueryFilters);
         }
-    })
+    });
 
     return mutate;
 }
+

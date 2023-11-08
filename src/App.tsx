@@ -28,10 +28,18 @@ function App() {
     setSearchBy(event.target.value);
   };
 
-  const sortedData = data?.sort((a, b) => a.codigo - b.codigo); // Ordena os dados pelo código
+  const sortedData = data
+  ? data
+      .slice()
+      .sort((a, b) => (a.codigo && b.codigo ? a.codigo - b.codigo : 0))
+  : [];
+
   const filteredData = sortedData?.filter((productData) =>
-    productData[searchBy].toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  productData[searchBy as keyof typeof productData]
+    ?.toString()
+    .toLowerCase()
+    .includes(searchTerm.toLowerCase())
+);
 
   const handleOpenModalUpdate = () => {
     setIsModalUpdateOpen(prev => !prev)
