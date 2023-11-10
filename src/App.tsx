@@ -9,10 +9,12 @@ import {RiDeleteBin6Fill} from 'react-icons/ri'
 import { CreateModal } from './components/create-modal/create-modal';
 import { UpdateModal } from './components/update-modal/update-modal';
 import { DeleteModal } from './components/delete-modal/delete-modal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSyncAlt } from '@fortawesome/free-solid-svg-icons';
 
 
 function App() {
-  const { data } = useProductData();
+  const { data, isLoading } = useProductData();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isModalUpdateOpen, setIsModalUpdateOpen] = useState(false);
   const [isModalDeleteOpen, setIsModalDeleteOpen] = useState(false);
@@ -92,6 +94,9 @@ function App() {
           {isModalOpen&& <CreateModal closeModal={handleOpenModal}/>}
         </div>
       <div className='container-table'>
+      {isLoading ? (
+          <FontAwesomeIcon icon={faSyncAlt} spin size='2xl' style={{color: "#6872D7",}} />
+      ) : (
         <table className="table">
           <thead>
             <tr>
@@ -115,6 +120,7 @@ function App() {
             ))}
           </tbody>
         </table>
+      )}
       </div>
     </div>
   );
