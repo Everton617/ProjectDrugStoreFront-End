@@ -2,7 +2,7 @@ import { useMutation, useQueryClient,InvalidateQueryFilters } from "@tanstack/re
 import axios, { AxiosPromise } from "axios";
 import { ProductData } from "../interface/ProductData";
 
-const API_URL = 'https://projetofullstack-nf8h.onrender.com';
+const API_URL = 'https://cruddrugstore.onrender.com';
 
 const putData = async ({ id, data }: { id: number; data: ProductData }): AxiosPromise<any> => {
     const response = await axios.put(`${API_URL}/products/${id}`, data);
